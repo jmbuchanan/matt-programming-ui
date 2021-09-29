@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Layout, Menu, Dropdown, Typography } from 'antd';
+import { MenuOutlined } from '@ant-design/icons';
+import 'antd/dist/antd.css';
+import './index.css';
 
-function App() {
+const { Header, Footer, Content } = Layout;
+const { Title, Text } = Typography;
+
+const menu = (
+  <Menu>
+    <Menu.Item>
+      <a>Linux</a>
+    </Menu.Item>
+    <Menu.Item>
+      <a>Java</a>
+    </Menu.Item>
+    <Menu.Item>
+      <a>Python</a>
+    </Menu.Item>
+  </Menu>
+)
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Header>
+        <Dropdown overlay={menu}>
+          <MenuOutlined style={{color: 'white'}}/>
+        </Dropdown>
+      </Header>
+      <Content style={{ padding: '10px 50px' }}>
+        <div>
+          <Title level={1}>Matt Programming</Title>
+          <Text>Welcome to the site.</Text>
+        </div>
+      </Content>
+      <Footer />
+    </Layout>
   );
-}
+};
 
 export default App;
